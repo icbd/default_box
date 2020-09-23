@@ -1,4 +1,6 @@
 # DefaultBox
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/icbd/default_box/Test)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/icbd/default_box)
 
 A tool developed for Golang.
 
@@ -7,7 +9,7 @@ Fill the default value of struct with struct tag.
 ## Install
 
 ```shell script
-go get github.com/icbd/default_box
+go get github.com/icbd/default_box@v1.0.0
 ```
 ## How to use
 
@@ -34,3 +36,7 @@ fmt.Printf("%+v", u)
 userWithDefaultValue := default_box.New(&User{}).Fill().ObjectPointer.(*User)
 fmt.Printf("%+v", userWithDefaultValue)
 ```
+
+## License
+
+MIT, see [LICENSE](LICENSE)
