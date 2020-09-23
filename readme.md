@@ -27,10 +27,10 @@ type User struct {
 
 // Fill a existed object
 u := User{}
-PackDefaultBox(&u).Fill()
+default_box.New(&u).Fill()
 fmt.Printf("%+v", u)
 
 // Chain style
-userWithDefaultValue := PackDefaultBox(&User{}).Fill().ObjectPointer.(*User)
+userWithDefaultValue := default_box.New(&User{}).Fill().ObjectPointer.(*User)
 fmt.Printf("%+v", userWithDefaultValue)
 ```

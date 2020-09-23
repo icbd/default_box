@@ -12,8 +12,8 @@ type defaultBox struct {
 	TagKey        string      `default:"default"`
 }
 
-// PackDefaultBox Pack object into the defaultBox.
-func PackDefaultBox(object interface{}) *defaultBox {
+// New Pack object into the defaultBox.
+func New(object interface{}) *defaultBox {
 	if reflect.TypeOf(object).Kind() != reflect.Ptr {
 		panic("ObjectPointer should be a pointer to struct")
 	}

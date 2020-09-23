@@ -15,13 +15,13 @@ type User struct {
 func TestPackDefaultBox(t *testing.T) {
 	// basic use
 	u := User{}
-	PackDefaultBox(&u).Fill()
+	New(&u).Fill()
 	if u.Name != "Bob" {
 		t.Fatal()
 	}
 
 	// chain style
-	user := PackDefaultBox(&User{}).Fill().ObjectPointer.(*User)
+	user := New(&User{}).Fill().ObjectPointer.(*User)
 	if user.Name != "Bob" {
 		t.Fatal()
 	}
@@ -31,11 +31,11 @@ func TestDefaultBox_Tag(t *testing.T) {
 	u := User{}
 	var tag string
 	var ok bool
-	tag, ok = PackDefaultBox(&u).Tag("Name")
+	tag, ok = New(&u).Tag("Name")
 	if ok != true || tag != "Bob" {
 		t.Fatal()
 	}
-	tag, ok = PackDefaultBox(&u).Tag("Scores")
+	tag, ok = New(&u).Tag("Scores")
 	if ok != true || tag != "{Language: 95.55, Math: 99.50}" {
 		t.Fatal()
 	}
@@ -62,7 +62,7 @@ func TestDefaultBox_Fill_BasicType(t *testing.T) {
 		Float64    float64 `default:"3.14159265358979"`
 	}
 	u := BasicTypeStruct{}
-	PackDefaultBox(&u).Fill()
+	New(&u).Fill()
 
 	if u.S != "string" {
 		t.Fatal()
@@ -125,7 +125,7 @@ func TestDefaultBox_Fill_Slice(t *testing.T) {
 		BoolSlice   []bool    `default:"[true, t, 1, 0]"`
 	}
 	u := SliceStruct{}
-	PackDefaultBox(&u).Fill()
+	New(&u).Fill()
 
 	if len(u.StringSlice) != 3 {
 		t.Fatal()
@@ -164,7 +164,7 @@ func TestDefaultBox_Fill_Map(t *testing.T) {
 		BoolIntMap      map[bool]int       `default:"[true: 100, f: 200]"`
 	}
 	u := MapStruct{}
-	PackDefaultBox(&u).Fill()
+	New(&u).Fill()
 
 	if len(u.StringStringMap) != 2 {
 		t.Fatal()
