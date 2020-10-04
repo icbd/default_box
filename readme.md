@@ -37,6 +37,10 @@ userWithDefaultValue := default_box.New(&User{}).Fill().ObjectPointer.(*User)
 fmt.Printf("%+v", userWithDefaultValue)
 ```
 
+### Attention
+
+Since `default_box` is implemented by reflection, fields that use default should start with an uppercase letter.
+
 ## License
 
 MIT, see [LICENSE](LICENSE)

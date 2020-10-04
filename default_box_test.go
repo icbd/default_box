@@ -203,3 +203,18 @@ func TestDefaultBox_Fill_Map(t *testing.T) {
 		t.Fatal()
 	}
 }
+
+func Test_uppercase(t *testing.T) {
+	type user struct {
+		Name   string `default:"Bob"`
+		avatar string `default:"avatar.png"`
+	}
+	u := user{}
+	New(&u).Fill()
+	if u.Name != "Bob" {
+		t.Fail()
+	}
+	if u.avatar != "" {
+		t.Fail()
+	}
+}

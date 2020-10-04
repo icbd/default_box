@@ -4,6 +4,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 // defaultBox Fill by default value from tag.
@@ -117,6 +118,10 @@ func (box *defaultBox) Fill() *defaultBox {
 		return box
 	}
 	for i := 0; i < objValue.NumField(); i++ {
+		fieldRunes := []rune(objType.Field(i).Name)
+		if len(fieldRunes) < 1 || unicode.IsLower(fieldRunes[0]) {
+			continue
+		}
 		defaultVal, present := objType.Field(i).Tag.Lookup(box.TagKey)
 		if !present {
 			continue
