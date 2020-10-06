@@ -9,7 +9,7 @@ Fill the default value of struct with struct tag.
 ## Install
 
 ```shell script
-go get github.com/icbd/default_box@v1.0.0
+go get github.com/icbd/default_box
 ```
 ## How to use
 
